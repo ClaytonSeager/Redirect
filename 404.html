@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meme Redirect</title>
+    <script>
+        const routes = {
+            "/script": "https://www.youtube.com/watch?v=xvFZjo5PgG0",
+            "/celebrate": "https://www.youtube.com/watch?v=cIg6odS-fA0",
+            "/bruh": "https://www.youtube.com/watch?v=kpwNjdEPz7E",
+            "/cat": "https://www.youtube.com/watch?v=CdEpmU9pRaE",
+        };
+
+        function handleRouting() {
+            const path = window.location.pathname;
+            if (routes[path]) {
+                window.location.href = routes[path];
+            } else {
+                document.body.innerHTML = `
+                    <h1>404 - Meme Not Found</h1>
+                    <p>Try one of the following routes:</p>
+                    <ul>
+                        <li><a href="/script">/script</a></li>
+                        <li><a href="/celebrate">/celebrate</a></li>
+                        <li><a href="/bruh">/bruh</a></li>
+                        <li><a href="/cat">/cat</a></li>
+                    </ul>
+                `;
+            }
+        }
+
+        window.onload = handleRouting;
+    </script>
+</head>
+<body>
+    <noscript>
+        <h1>JavaScript is required for this page.</h1>
+        <p>Please enable JavaScript and refresh the page.</p>
+    </noscript>
+</body>
+</html>
