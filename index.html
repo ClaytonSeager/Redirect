@@ -12,22 +12,25 @@
             "/cat": "https://www.youtube.com/watch?v=CdEpmU9pRaE",
         };
 
-        const currentPath = window.location.pathname;
-
-        if (routes[currentPath]) {
-            window.location.href = routes[currentPath];
-        } else {
-            document.body.innerHTML = `
-                <h1>404 - Meme Not Found</h1>
-                <p>Try one of the following routes:</p>
-                <ul>
+        function handleRouting() {
+            const path = window.location.pathname;
+            if (routes[path]) {
+                window.location.href = routes[path];
+            } else {
+                document.body.innerHTML = `
+                    <h1>404 - Meme Not Found</h1>
+                    <p>Try one of the following routes:</p>
+                    <ul>
                     <li><a href="/script">/script</a></li>
                     <li><a href="/celebrate">/test</a></li>
                     <li><a href="/fail">/bruh</a></li>
                     <li><a href="/cat">/cat</a></li>
                 </ul>
-            `;
+                `;
+            }
         }
+
+        window.onload = handleRouting;
     </script>
 </head>
 <body>
