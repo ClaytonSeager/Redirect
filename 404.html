@@ -6,14 +6,15 @@
     <title>Meme Redirect</title>
     <script>
         const routes = {
-            "/script": "https://www.youtube.com/watch?v=xvFZjo5PgG0",
-            "/celebrate": "https://www.youtube.com/watch?v=cIg6odS-fA0",
-            "/bruh": "https://www.youtube.com/watch?v=kpwNjdEPz7E",
-            "/cat": "https://www.youtube.com/watch?v=CdEpmU9pRaE",
+            "/Redirect/script": "https://www.youtube.com/watch?v=xvFZjo5PgG0",
+            "/Redirect/celebrate": "https://www.youtube.com/watch?v=cIg6odS-fA0",
+            "/Redirect/bruh": "https://www.youtube.com/watch?v=kpwNjdEPz7E",
+            "/Redirect/cat": "https://www.youtube.com/watch?v=CdEpmU9pRaE",
         };
 
         function handleRouting() {
             const path = window.location.pathname;
+
             if (routes[path]) {
                 window.location.href = routes[path];
             } else {
@@ -21,10 +22,10 @@
                     <h1>404 - Meme Not Found</h1>
                     <p>Try one of the following routes:</p>
                     <ul>
-                        <li><a href="/script">/script</a></li>
-                        <li><a href="/celebrate">/celebrate</a></li>
-                        <li><a href="/bruh">/bruh</a></li>
-                        <li><a href="/cat">/cat</a></li>
+                        <li><a href="/Redirect/script">/script</a></li>
+                        <li><a href="/Redirect/celebrate">/celebrate</a></li>
+                        <li><a href="/Redirect/bruh">/bruh</a></li>
+                        <li><a href="/Redirect/cat">/cat</a></li>
                     </ul>
                 `;
             }
