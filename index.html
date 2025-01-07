@@ -6,31 +6,47 @@
     <title>Meme Redirect</title>
     <script>
         const routes = {
-            "/script": "https://www.youtube.com/watch?v=xvFZjo5PgG0",
-            "/celebrate": "https://www.youtube.com/watch?v=cIg6odS-fA0",
-            "/bruh": "https://www.youtube.com/watch?v=kpwNjdEPz7E",
-            "/cat": "https://www.youtube.com/watch?v=CdEpmU9pRaE",
+            "script": "https://www.youtube.com/watch?v=xvFZjo5PgG0",
+            "celebrate": "https://www.youtube.com/watch?v=cIg6odS-fA0",
+            "bruh": "https://www.youtube.com/watch?v=kpwNjdEPz7E",
+            "cat": "https://www.youtube.com/watch?v=CdEpmU9pRaE",
+            "fail": "https://www.youtube.com/watch?v=zL2x_wOCYyA",
         };
 
         function handleRouting() {
-            const path = window.location.pathname;
-            if (routes[path]) {
-                window.location.href = routes[path];
-            } else {
+            const hash = window.location.hash.substring(1);
+
+            if (routes[hash]) {
+                window.location.href = routes[hash];
+            } else if (hash) {
                 document.body.innerHTML = `
                     <h1>404 - Meme Not Found</h1>
-                    <p>Try one of the following routes:</p>
+                    <p>The route "${hash}" does not exist. Try one of these:</p>
                     <ul>
-                    <li><a href="/script">/script</a></li>
-                    <li><a href="/celebrate">/test</a></li>
-                    <li><a href="/fail">/bruh</a></li>
-                    <li><a href="/cat">/cat</a></li>
-                </ul>
+                        <li><a href="#script">#script</a></li>
+                        <li><a href="#celebrate">#celebrate</a></li>
+                        <li><a href="#bruh">#bruh</a></li>
+                        <li><a href="#cat">#cat</a></li>
+                        <li><a href="#fail">#fail</a></li>
+                    </ul>
+                `;
+            } else {
+                document.body.innerHTML = `
+                    <h1>Welcome to Meme Redirect</h1>
+                    <p>Use one of the following routes in the URL:</p>
+                    <ul>
+                        <li><a href="#script">#script</a></li>
+                        <li><a href="#celebrate">#celebrate</a></li>
+                        <li><a href="#bruh">#bruh</a></li>
+                        <li><a href="#cat">#cat</a></li>
+                        <li><a href="#fail">#fail</a></li>
+                    </ul>
                 `;
             }
         }
 
         window.onload = handleRouting;
+        window.onhashchange = handleRouting;
     </script>
 </head>
 <body>
